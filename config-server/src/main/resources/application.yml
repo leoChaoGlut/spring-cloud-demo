@@ -1,0 +1,13 @@
+server:
+  port: 8084
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///${user.home}/config-repo
+          searchPaths: '{application}'  #搜索各个以服务名命名的文件夹下的所有yml
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/  #注册中心地址

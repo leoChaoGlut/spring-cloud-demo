@@ -1,4 +1,4 @@
-package cn.demo.service0;
+package cn.demo.service1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RestController
-public class Service0 {
+public class Application {
 
-    @GetMapping("/service0")
+    @GetMapping("/test")
     public String service0() {
-        return "service0";
+        return "service1";
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Service0.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }

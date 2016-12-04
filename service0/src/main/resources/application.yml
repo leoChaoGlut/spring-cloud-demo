@@ -6,4 +6,4 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/  #注册中心地址
 server:
-  port: 8081 #service0 占用8081
+  port: 8081
