@@ -2,9 +2,9 @@ package cn.demo.service1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * @Author: Leo
@@ -12,16 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @CreateTime: 2016/11/21 23:01
  * @Description:
  */
-@SpringBootApplication
-@EnableDiscoveryClient
-@RestController
+@SpringBootApplication(scanBasePackages = "cn.demo.service1")
+@EnableFeignClients
+@EnableWebMvc
+@EnableEurekaClient
 public class Application {
-
-    @GetMapping("/test")
-    public String service0() {
-        return "service1";
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }

@@ -5,5 +5,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/  #注册中心地址
+  instance:
+    hostname: localhost
+    instance-id: http://localhost:8082
 server:
   port: 8082 #service0 占用8082
