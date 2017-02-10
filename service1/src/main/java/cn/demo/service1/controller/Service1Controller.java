@@ -17,7 +17,7 @@ public class Service1Controller {
     @Autowired
     Service0Client service0Client;
 
-    @GetMapping("/test/")
+    @GetMapping("/test")
     public String test() {
         return service0Client.test();
     }
