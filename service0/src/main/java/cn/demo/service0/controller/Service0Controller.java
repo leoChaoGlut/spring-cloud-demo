@@ -12,6 +12,10 @@ import java.util.concurrent.TimeUnit;
  */
 @RestController
 public class Service0Controller {
+    /**
+     * 用于测试ribbon 重试机制
+     */
+    int count = 0;
 
     @GetMapping("user/{userId}/{sleepSec}")
     String test(
@@ -20,7 +24,8 @@ public class Service0Controller {
     ) {
         try {
             System.out.println("hello:" + userId);
-            TimeUnit.SECONDS.sleep(sleepSec);
+            count++;
+            TimeUnit.SECONDS.sleep(sleepSec - count);
             return "hello:" + userId;
         } catch (Exception e) {
             e.printStackTrace();
