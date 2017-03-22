@@ -1,10 +1,8 @@
 package cn.demo.service0.controller;
 
-import org.apache.commons.lang.time.FastDateFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: Leo
@@ -15,9 +13,26 @@ import java.util.Date;
 @RestController
 public class Service0Controller {
 
-    @GetMapping("test")
-    String test() {
-        return FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss.sss").format(new Date());
+    @GetMapping("user/{userId}/{sleepSec}")
+    String test(
+            @PathVariable String userId,
+            @PathVariable int sleepSec
+    ) {
+        try {
+            System.out.println("hello:" + userId);
+            TimeUnit.SECONDS.sleep(sleepSec);
+            return "hello:" + userId;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return e.getMessage();
+        }
+    }
+
+    @PostMapping("post")
+    String post(
+            @RequestBody String body
+    ) {
+        return body;
     }
 
 }

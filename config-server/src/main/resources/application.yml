@@ -1,6 +1,8 @@
 server:
   port: 8084
 spring:
+  application:
+    name: config-center
   cloud:
     config:
       server:
@@ -8,6 +10,9 @@ spring:
           uri: file:///${user.home}/config-repo
           searchPaths: '{application}'  #搜索各个以服务名命名的文件夹下的所有yml
 eureka:
+  instance:
+    hostname: localhost
+    instance-id: localhost:8084
   client:
     serviceUrl:
-      defaultZone: http://localhost:8080/eureka/  #注册中心地址
+      defaultZone: http://127.0.0.1:8080/eureka/  #注册中心地址

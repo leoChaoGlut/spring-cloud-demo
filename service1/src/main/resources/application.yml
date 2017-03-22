@@ -10,3 +10,9 @@ eureka:
     instance-id: http://localhost:8082
 server:
   port: 8082 #service0 占用8082
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 40000  # feign 超时控制
+service0:
+  ribbon:
+    ReadTimeout: 1000
+    ConnectTimeout: 500
+    MaxAutoRetries: 1
